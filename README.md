@@ -1,9 +1,10 @@
+[原文链接](https://sing1.github.io/2016/08/18/GreenDao%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/)
+
+
 greenDAO是一个将对象映射到SQLite数据库中的轻量且快速的ORM解决方案。
 关于greenDAO可以看官网 [官网地址](http://greenrobot.org/greendao/)  
 
 [github地址](https://github.com/greenrobot/greenDAO)
-
-[原文链接](https://sing1.github.io/2016/08/18/GreenDao%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/)
 
 
 greenDAO 优势
@@ -489,7 +490,7 @@ public class BaseDao<T>{
 之后我们所以的实现类都继承此类即可，需要重写的部分重写，比如简单的：
 
 ```JAVA
-public class UserDaoIml extends BaseDao<User> {
+public class UserDaoImpl extends BaseDao<User> {
     public UserDaoIml(Context context) {
         super(context);
     }
@@ -506,14 +507,15 @@ public class UserDaoIml extends BaseDao<User> {
 然后我们就可以在 Activity 中使用所以的方法：
 
 ```JAVA
-UserDaoIml userDaoIml = new UserDaoIml(this);
+UserDaoImpl userDaoImpl = new UserDaoImpl(this);
 
-userDaoIml.insert(user);
-userDaoIml.delete(user);
-userDaoIml.update(user);
-userDaoIml.queryAll(User.class)
+userDaoImpl.insert(user);
+userDaoImpl.delete(user);
+userDaoImpl.update(user);
+userDaoImpl.queryAll(User.class)
 ```
-而且我们也封装了事务处理，支持批量操作，是不是很方便？
+而且我们也封装了事务处理，支持批量操作，是不是很方便？  
+
 ![](http://oupjofqw3.bkt.clouddn.com/android_greendao_0002.gif)  
 
 由上我们增加了3条数据，然后我们将数据库导出查看：
